@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <OCMock.h>
+
+#import "AQSEventAggregator.h"
+#import <AQSEvent.h>
 
 @interface AQSEventAggregatorTests : XCTestCase
+
+@property AQSEventAggregator *aggregatorInstance;
 
 @end
 
@@ -17,7 +23,8 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    _aggregatorInstance = [AQSEventAggregator sharedAggregator];
 }
 
 - (void)tearDown {
@@ -25,16 +32,50 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testItInvokesDidReceiveEventForPassingEvents {
+    id mockAggregator = [OCMockObject partialMockForObject:_aggregatorInstance];
+    NSArray *passingEvents = @[
+                               @"whoa"
+                               ];
+    OCMStub([mockAggregator passingEvents]).andReturn(passingEvents);
+    OCMExpect([mockAggregator didReceiveEvent:@"whoa" arg:@{}]);
+    [mockAggregator startAggregation];
+    
+    [AQSEvent event:@"whoa" args:@{}];
+    
+    OCMVerifyAll(mockAggregator);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testItInvokesDidReceiveEventWithArgsForPassingEvents {
+    id mockAggregator = [OCMockObject partialMockForObject:_aggregatorInstance];
+    NSArray *passingEvents = @[
+                               @"whoa"
+                               ];
+    OCMStub([mockAggregator passingEvents]).andReturn(passingEvents);
+    OCMExpect([mockAggregator didReceiveEvent:@"whoa" arg:@{
+                                                            @"arg": @"value"
+                                                            }]);
+    [mockAggregator startAggregation];
+    
+    [AQSEvent event:@"whoa" args:@{
+                                   @"arg": @"value"
+                                   }];
+    
+    OCMVerifyAll(mockAggregator);
+}
+
+- (void)testItDoesNotInvokeDidReceiveEventForPassingEvents {
+    id mockAggregator = [OCMockObject partialMockForObject:_aggregatorInstance];
+    NSArray *passingEvents = @[
+                               @"notwhoa"
+                               ];
+    OCMStub([mockAggregator passingEvents]).andReturn(passingEvents);
+    [[mockAggregator reject] didReceiveEvent:@"whoa" arg:@{}];
+    [mockAggregator startAggregation];
+    
+    [AQSEvent event:@"whoa" args:@{}];
+    
+    OCMVerifyAll(mockAggregator);
 }
 
 @end

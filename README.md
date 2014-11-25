@@ -25,6 +25,7 @@ At first, subclass `AQSEventAggregator`,
 
 - (void)didReceiveEvent:(NSString *)eventName args:(NSDictionary *)eventArgs {
     // Do something when it receives AQSEvent.
+    // Typically, send the event to tracking services such as Google Analytics, MixPanel etc.
 }
 
 @end
@@ -33,10 +34,10 @@ At first, subclass `AQSEventAggregator`,
 Then as follows to start aggregation.
 
 ```objc
-[[AQSEventAggregator sharedAggregator] start];
+[[AQSEventAggregator sharedAggregator] startAggregation];
 ```
 
-To handle events more finely, override following methods.
+To handle events more finely, override following methods. (These features are currently not supported.)
 
 ```
 // @optional

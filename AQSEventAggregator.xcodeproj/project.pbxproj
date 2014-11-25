@@ -15,6 +15,7 @@
 		D43CC7DA1A252D5F000B24BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D43CC7D91A252D5F000B24BB /* Images.xcassets */; };
 		D43CC7DD1A252D5F000B24BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CC7DB1A252D5F000B24BB /* LaunchScreen.xib */; };
 		D43CC7E91A252D5F000B24BB /* AQSEventAggregatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CC7E81A252D5F000B24BB /* AQSEventAggregatorTests.m */; };
+		D43CC7F51A252EB3000B24BB /* AQSEventAggregator.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CC7F41A252EB3000B24BB /* AQSEventAggregator.m */; };
 		F42AD5DA8A9A28DF4C1712EE /* libPods-AQSEventAggregatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D4F905F636DCD07C13CF26 /* libPods-AQSEventAggregatorTests.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		D43CC7E21A252D5F000B24BB /* AQSEventAggregatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AQSEventAggregatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43CC7E71A252D5F000B24BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D43CC7E81A252D5F000B24BB /* AQSEventAggregatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AQSEventAggregatorTests.m; sourceTree = "<group>"; };
+		D43CC7F31A252EB3000B24BB /* AQSEventAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQSEventAggregator.h; sourceTree = "<group>"; };
+		D43CC7F41A252EB3000B24BB /* AQSEventAggregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQSEventAggregator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		D43CC7CB1A252D5F000B24BB /* AQSEventAggregator */ = {
 			isa = PBXGroup;
 			children = (
+				D43CC7F21A252EA9000B24BB /* Classes */,
 				D43CC7D01A252D5F000B24BB /* AppDelegate.h */,
 				D43CC7D11A252D5F000B24BB /* AppDelegate.m */,
 				D43CC7D31A252D5F000B24BB /* ViewController.h */,
@@ -138,6 +142,15 @@
 				D43CC7E71A252D5F000B24BB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D43CC7F21A252EA9000B24BB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D43CC7F31A252EB3000B24BB /* AQSEventAggregator.h */,
+				D43CC7F41A252EB3000B24BB /* AQSEventAggregator.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		F676B3D60DA79EC8B2A9CDDE /* Pods */ = {
@@ -319,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D43CC7D51A252D5F000B24BB /* ViewController.m in Sources */,
+				D43CC7F51A252EB3000B24BB /* AQSEventAggregator.m in Sources */,
 				D43CC7D21A252D5F000B24BB /* AppDelegate.m in Sources */,
 				D43CC7CF1A252D5F000B24BB /* main.m in Sources */,
 			);
