@@ -33,7 +33,7 @@
 /**
  *  Start event observation
  */
-- (void)start;
+- (void)startAggregation;
 
 # pragma mark - Override methods
 /** @name Override Methods */

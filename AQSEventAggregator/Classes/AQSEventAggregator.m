@@ -32,7 +32,7 @@
 
 # pragma mark - Stating Observation
 
-- (void)start {
+- (void)startAggregation {
     __weak typeof(self) wSelf = self;
     self.observer = [AQSEventObserver observerWithBlock:^(NSString *eventName, NSDictionary *eventArgs) {
         if ([wSelf isEventPassing:eventName arg:eventArgs] == NO) { return; }
