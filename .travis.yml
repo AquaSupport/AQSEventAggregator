@@ -10,7 +10,11 @@ notifications:
 before_install:
   - gem install cocoapods
   - gem install xcpretty
+  - sudo easy_install cpp-coveralls
 
 before_script: pod install
 
 script: bash ./.travis_test.sh
+
+after_success:
+  - make coveralls
