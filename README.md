@@ -5,13 +5,22 @@ AQSEventAggregator
 
 An aggregator for [AQSEvent](https://github.com/AquaSupport/AQSEvent)
 
+- [Usage](#usage)
+  - [Define your aggregator](#define-your-aggregator)
+  - [Starting aggregation](#starting-aggregation)
+  - [Handling events more finely](#handling-events-more-finely)
+- [Documentation](#documentation)
+- [Related Projects](#related-projects)
+
 Usage
 ---
+
+### Define your aggregator
 
 At first, subclass `AQSEventAggregator`,
 
 ```objc
-@interface AppEventAggregator
+@interface AppEventAggregator : AQSEventAggregator
 @end
 
 @implementation
@@ -27,21 +36,26 @@ At first, subclass `AQSEventAggregator`,
 
 - (void)didReceiveEvent:(NSString *)eventName args:(NSDictionary *)eventArgs {
     // Do something when it receives AQSEvent.
+    //
     // Typically, send the event to tracking services such as Google Analytics, MixPanel etc.
 }
 
 @end
 ```
 
-Then as follows to start aggregation.
+### Starting aggregation
+
+As follows to start aggregation.
 
 ```objc
 [[AppEventAggregator sharedAggregator] startAggregation];
 ```
 
+### Handling events more finely
+
 To handle events more finely, override following methods. (These features are currently not supported.)
 
-```
+```objc
 // @optional
 - (NSArray *)blackListForEvents;
 // @optional
