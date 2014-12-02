@@ -1,6 +1,8 @@
 AQSEventAggregator
 ==================
 
+![](http://img.shields.io/cocoapods/v/AQSEventAggregator.svg?style=flat) ![](http://img.shields.io/travis/AquaSupport/AQSEventAggregator.svg?style=flat)
+
 An aggregator for [AQSEvent](https://github.com/AquaSupport/AQSEvent)
 
 Usage
@@ -34,7 +36,7 @@ At first, subclass `AQSEventAggregator`,
 Then as follows to start aggregation.
 
 ```objc
-[[AQSEventAggregator sharedAggregator] startAggregation];
+[[AppEventAggregator sharedAggregator] startAggregation];
 ```
 
 To handle events more finely, override following methods. (These features are currently not supported.)
@@ -50,6 +52,11 @@ Documentation
 ---
 
 [appledoc](https://dl.dropboxusercontent.com/u/7817937/___doc___AQSEventAggregator/html/index.html) is provided.
+
+Related Projects
+---
+
+- [AQSEvent](https://github.com/AquaSupport/AQSEvent) - Helpers for measurement events.
 
 LICENSE
 ---
